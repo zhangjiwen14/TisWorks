@@ -1,0 +1,48 @@
+sudo chmod -R 775 /home/opas
+
+unzip /usr/local/oracle/instantclient-basic-linux.x64-19.6.0.0.0dbru.zip
+unzip /usr/local/oracle/instantclient-jdbc-linux.x64-19.6.0.0.0dbru.zip
+unzip /usr/local/oracle/instantclient-sdk-linux.x64-19.6.0.0.0dbru.zip
+unzip /usr/local/oracle/instantclient-sqlplus-linux.x64-19.6.0.0.0dbru.zip
+
+vi -p tnsnames.ora
+
+IBCCT =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.36.26)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = IBCX)
+    )
+  )
+
+vi ~/.bashrc OR vi ~/.bash_profile
+export ORACLE_HOME=/usr/local/oracle/instantclient_19_6
+export TNS_ADMIN=$ORACLE_HOME/network/admin
+export NLS_LANG=Japanese_Japan.AL32UTF8
+export LD_LIBRARY_PATH=$ORACLE_HOME
+export PATH=$ORACLE_HOME:$PATH
+source ~/.bashrc OR source ~/.bash_profile
+dnf install libnsl
+
+
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el8_2.x86_64
+yum install java-1.8.0-openjdk-devel
+
+export MAVEN_HOME=/usr/local/apache-maven-3.6.3
+export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
+
+fdisk -l
+pvdisplay
+vgdisplay
+lvdisplay
+
+
+umount /mnt
+e2fsck -f /dev/sdb1
+resize2fs /dev/sdb1 10G
+lvresize -L 10G /dev/sdb1
+lvresize -L +6G /dev/mapper/rootvg-homelv
+xfs_growfs /dev/mapper/rootvg-homelv
+mount /mnt
