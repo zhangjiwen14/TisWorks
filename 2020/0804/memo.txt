@@ -46,3 +46,8 @@ lvresize -L 10G /dev/sdb1
 lvresize -L +6G /dev/mapper/rootvg-homelv
 xfs_growfs /dev/mapper/rootvg-homelv
 mount /mnt
+
+
+lvresize -L -1G /dev/mapper/rootvg-homelv
+xfs_growfs /dev/mapper/rootvg-homelv
+
