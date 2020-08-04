@@ -42,6 +42,7 @@ lvdisplay
 umount /mnt
 e2fsck -f /dev/sdb1
 resize2fs /dev/sdb1 10G
+resize2fs /dev/sdb1
 lvresize -L 10G /dev/sdb1
 lvresize -L +6G /dev/mapper/rootvg-homelv
 xfs_growfs /dev/mapper/rootvg-homelv
