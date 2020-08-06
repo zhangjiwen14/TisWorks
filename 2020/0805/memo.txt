@@ -1,2 +1,6 @@
 初回コミット
 次回コミット
+
+https://nodejs.org/en/
+https://github.com/Azure/azure-functions-core-tools
+https://git-scm.com/downloads
