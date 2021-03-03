@@ -25,3 +25,5 @@ For my work-memory in TIS Inc.
 	東京	
 
 以上、よろしくお願い致します
+
+詠子
