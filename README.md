@@ -1,1 +1,1 @@
-\\TND11519-T1\share
+\\172.17.167.219\User_Document\tie304198\Desktop\test
