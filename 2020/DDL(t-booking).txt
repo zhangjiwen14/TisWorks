@@ -1,0 +1,39 @@
+CREATE TABLE t_booking (
+site_code char(2)
+,booking_no varchar(50)
+,login_time datetime
+,booking_time datetime
+,checkin_date int(8)
+,checkout_date int(8)
+,hk_days_count int(3)
+,cx_days_count int(3)
+,ns_days_count int(3)
+,guest_count int(3)
+,child_guest_count int(3)
+,checkin_time time
+,traveltype_code char(2)
+,payment_code char(2)
+,hk_total_amount int(8)
+,cx_total_amount int(8)
+,ns_total_amount int(8)
+,user_id varchar(50)
+,member_code char(2)
+,domestin_user_code char(2)
+,name varchar(50)
+,telephonenumber varchar(13)
+,mailaddress varchar(100)
+,facility_no varchar(50)
+,facility_room_count int(5)
+,facility_prefecture_code char(2)
+); 
+
+ALTER TABLE t_booking ADD PRIMARY KEY (site_code,booking_no);
+
+CREATE INDEX idx_checkin_date ON t_booking (checkin_date)
+CREATE INDEX idx_user_id ON t_booking (user_id)
+CREATE INDEX idx_checkout_date ON t_booking (checkout_date)
+CREATE INDEX idx_facility_no ON t_booking (facility_no)
+CREATE INDEX idx_checkin_date_user_id ON t_booking (checkin_date,user_id)
+CREATE INDEX idx_checkin_date_facility_no ON t_booking (checkin_date,facility_no)
+CREATE INDEX idx_user_id_checkin_date ON t_booking (user_id,checkin_date)
+CREATE INDEX idx_facility_no_checkin_date ON t_booking (facility_no,checkin_date)
