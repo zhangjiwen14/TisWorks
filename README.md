@@ -1,5 +1,4 @@
-url=jdbc:mysql://ugpf-poc-my01.mysql.database.azure.com:3306/ugpf_poc?useSSL=true&requireSSL=false
+cp -p /etc/profile /etc/profile.`date +%Y%m%d`.bak
+vi /etc/profile
 
-user=poc@ugpf-poc-my01
-
-password=9090UGpf2020
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.262.b10-0.el8_2.x86_64
