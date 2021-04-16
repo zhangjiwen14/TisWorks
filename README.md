@@ -1,3 +1,6 @@
+java -jar /home/ugpf/appl/ugpf-investigation/target/azure-functions/ugpf-investigation-1618063138903/ugpf-investigation-1.0-SNAPSHOT.jar 'testcase1.sql'
+
+
 select
     book.site_code
      , book.user_id
