@@ -64,3 +64,36 @@ inner join
     sum_userid score
     on book.site_code = score.site_code
     and book.user_id = score.user_id;
+
+
+
+
+
+
+
+explain select book.site_code, 
+book.user_id,
+score.user_hk_count, 
+score.user_cx_count, 
+score.user_ns_count
+from 
+t_booking book
+left join 
+(select
+  book.site_code
+  , book.user_id
+  , sum(book.hk_total_amount) user_hk_count
+  , sum(book.cx_total_amount) user_cx_count
+  , sum(book.ns_total_amount) user_ns_count
+from
+  t_booking book 
+where book.checkout_date >=20190814 and book.checkout_date <= 20190914
+group by
+  book.site_code
+  , book.user_id) score
+  on book.site_code = score.site_code
+  and book.user_id = score.user_id
+where book.checkout_date >=20190814 and book.checkout_date <= 20190914
+order by
+  1
+  , 2;
