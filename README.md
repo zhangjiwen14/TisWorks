@@ -97,3 +97,19 @@ where book.checkout_date >=20190814 and book.checkout_date <= 20190914
 order by
   1
   , 2;
+
+
+
+select
+  site_code,
+  user_id,
+  sum(hk_days_count),  -- 宿泊日数
+  sum(hk_total_amount),  -- 宿泊金額
+  sum(case when hk_days_count >= 1 then guest_count else 0 end)  -- 利用人数
+from
+  t_booking
+where
+  checkin_date >= 20191014 and checkin_date < 20191114
+group by
+  site_code,
+  user_id;
