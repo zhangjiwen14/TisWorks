@@ -119,3 +119,13 @@ group by
 ・集計単位でGroup By → 集計単位ごとにデータ抽出＋プログラム上で集計（もともとのアプリ案） → 集計単位数だけ繰り返し
 ・期間区切りで絞り込み＋集計単位でGroup By＋集合演算 → 集計単位数だけ繰り返し
 ・期間区切りで絞り込み → プログラム上で集計（全集計単位、いっきに実施。ユーザー以外は期間内の全データをメモリ上で合算でよい）
+
+
+	• VM名： ugpf-tec-ssh-access
+	• DNS名： ugpf-tec-ssh-access.japaneast.cloudapp.azure.com
+	• 23時に自動シャットダウン
+	• 接続ユーザー名： azureuser
+	• SSH公開鍵： 
+
+	• 接続コマンドイメージ
+ssh azureuser@ugpf-tec-ssh-access.japaneast.cloudapp.azure.com -i ugpf-tec-ssh-access.pem -p 443 -o ProxyCommand='nc -X connect -x tkyproxy.intra.tis.co.jp:8080 %h %p'
