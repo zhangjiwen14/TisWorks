@@ -129,3 +129,16 @@ group by
 
 	• 接続コマンドイメージ
 ssh azureuser@ugpf-tec-ssh-access.japaneast.cloudapp.azure.com -i ugpf-tec-ssh-access.pem -p 443 -o ProxyCommand='nc -X connect -x tkyproxy.intra.tis.co.jp:8080 %h %p'
+
+
+
+select
+  * 
+from
+  t_scoring_objects 
+where
+  site_code = '@site_code@' 
+  and user_id = '@user_id@' 
+  and @checkin_date@<= checkout_date 
+  and @checkout_date@>= checkin_date 
+  and payment_code = '01'
