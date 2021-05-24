@@ -144,6 +144,4 @@ where
   and payment_code = '01'
 
 
-Exception in thread "main" java.lang.ExceptionInInitializerError
-
-        at batch.Bootstrap.<clinit>(Bootstrap.java:23)
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xms2048m -Xmx4096m -Dspring.profiles.active=local -Dbatch.id=sample01"
