@@ -142,3 +142,8 @@ where
   and @checkin_date@<= checkout_date 
   and @checkout_date@>= checkin_date 
   and payment_code = '01'
+
+
+Exception in thread "main" java.lang.ExceptionInInitializerError
+
+        at batch.Bootstrap.<clinit>(Bootstrap.java:23)
