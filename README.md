@@ -145,3 +145,5 @@ where
 
 
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xms2048m -Xmx4096m -Dspring.profiles.active=local -Dbatch.id=sample01"
+
+java -jar -Xms2048m -Xmx4096m -Dspring.profiles.active=local -Dbatch.id=sample01 lib/batch-0.0.1-SNAPSHOT.jar
