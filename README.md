@@ -149,3 +149,7 @@ mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xms2048m -Xmx4096m -Dspring
 java -jar -Xms2048m -Xmx4096m -Dspring.profiles.active=local -Dbatch.id=sample01 lib/batch-0.0.1-SNAPSHOT.jar
 
 java -cp lib/*:conf/:batch-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=local -Dbatch.id=sample01 batch.Bootstrap
+
+
+
+mkdir azagent;cd azagent;curl -fkSL -o vstsagent.tar.gz https://vstsagentpackage.azureedge.net/agent/2.187.2/vsts-agent-linux-x64-2.187.2.tar.gz;tar -zxvf vstsagent.tar.gz; if [ -x "$(command -v systemctl)" ]; then ./config.sh --environment --environmentname "avmdeployment" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/booking-brain/ --work _work --projectname 'booking-brain' --auth PAT --token pbpdb34i7gyuzqmbhyv674yudfof47e4mvbg6ixuto5u5aahby5q --runasservice; sudo ./svc.sh install; sudo ./svc.sh start; else ./config.sh --environment --environmentname "avmdeployment" --acceptteeeula --agent $HOSTNAME --url https://dev.azure.com/booking-brain/ --work _work --projectname 'booking-brain' --auth PAT --token pbpdb34i7gyuzqmbhyv674yudfof47e4mvbg6ixuto5u5aahby5q; ./run.sh; fi
